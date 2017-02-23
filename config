@@ -119,7 +119,7 @@ laser_module_pwm_pin                          2.5             # This pin will be
 temperature_control.hotend.enable            true             # Whether to activate this ( "hotend" ) module at all.
 temperature_control.hotend.thermistor_pin    0.23             # Pin for the thermistor to read
 temperature_control.hotend.heater_pin        2.7              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
-temperature_control.hotend.thermistor        EPCOS100K        # See http://smoothieware.org/temperaturecontrol#toc5
+temperature_control.hotend.thermistor        Semitec          # See http://smoothieware.org/temperaturecontrol#toc5
 #temperature_control.hotend.beta             4066             # Or set the beta value
 temperature_control.hotend.set_m_code        104              # M-code to set the temperature for this module
 temperature_control.hotend.set_and_wait_m_code 109            # M-code to set-and-wait for this module
