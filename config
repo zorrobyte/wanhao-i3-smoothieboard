@@ -217,7 +217,7 @@ gamma_min_endstop                            1.28^            # Pin to read min 
 #gamma_max_endstop                           1.29^            # Pin to read max endstop, uncomment this and comment the above if using max endstops
 gamma_homing_direction                       home_to_min      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0                # This gets loaded as the current position after homing when home_to_min is set
-gamma_max                                    200              # This gets loaded as the current position after homing when home_to_max is set
+gamma_max                                    180              # This gets loaded as the current position after homing when home_to_max is set
 
 alpha_max_travel                             500              # Max travel in mm for alpha/X axis when homing
 beta_max_travel                              500              # Max travel in mm for beta/Y axis when homing
