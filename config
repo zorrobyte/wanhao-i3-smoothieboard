@@ -70,6 +70,14 @@ extruder.hotend.en_pin                          0.21          # Pin for extruder
 #extruder.hotend.y_offset                        0            # Y offset from origin in mm
 #extruder.hotend.z_offset                        0            # Z offset from origin in mm
 
+# Switch module for servo control - BLTouch
+switch.servo.enable                            true             # Enable this module
+switch.servo.input_on_command                  M280             # M280 S7.5 would be midway
+switch.servo.input_off_command                 M281             # Same as M280 S0 0% duty cycle, effectively off
+switch.servo.output_pin                        1.23             # Must be a PWM capable pin
+switch.servo.output_type                       hwpwm            # H/W pwm output settable with S parameter in the input_on_comand
+#switch.servo.pwm_period_ms                    20               # set period to 20ms (50Hz) default is 50Hz
+
 # PSU Switch
 # TODO for Wanhao i3
 #switch.psu.enable                            true             # turn atx on/off
@@ -272,7 +280,7 @@ gamma_homing_retract_mm                      1                # Distance to retr
 
 ## Z-probe
 # See http://smoothieware.org/zprobe
-zprobe.enable                                false           # Set to true to enable a zprobe
+zprobe.enable                                true           # Set to true to enable a zprobe
 zprobe.probe_pin                             1.28!^          # Pin probe is attached to, if NC remove the !
 zprobe.slow_feedrate                         5               # Mm/sec probe feed rate
 #zprobe.debounce_count                       100             # Set if noisy
@@ -290,6 +298,23 @@ zprobe.probe_height                          5               # How much above be
 #leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
 #leveling-strategy.three-point-leveling.probe_offsets  0,0,0       # the probe offsets from nozzle, must be x,y,z, default is no offset
 #leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
+leveling-strategy.rectangular-grid.enable              true
+leveling-strategy.rectangular-grid.x_size              200
+leveling-strategy.rectangular-grid.y_size              200
+leveling-strategy.rectangular-grid.size                7
+leveling-strategy.rectangular-grid.do_home             true
+# Optionally probe offsets from the nozzle or tool head can be defined with…
+#leveling-strategy.rectangular-grid.probe_offsets      0,0,0  # probe offsets x,y,z  (Z should always be 0)
+# Probe offsets may also be set with M565 X0 Y0 Z0.
+# If the saved grid is to be loaded on boot then this must be set in the config…
+leveling-strategy.rectangular-grid.save                true
+# Then when M500 is issued it will save M375 which will cause the grid to be loaded on boot. The default is to not autoload the grid on boot.
+# The grid size and the rectangle size is saved in the file, and restored when it is loaded with M375. If the grid size is different from the one in config it will NOT load.
+# If the rectangle is different, then the rectangle will be set to whatever was saved overriding the one set in config.
+# Optionally an initial_height can be set that tell the initial probe where to stop the fast decent before it probes, this should be around 5-10mm above the bed
+leveling-strategy.rectangular-grid.initial_height      10
+# IMPORTANT set mm_per_line_segment:
+mm_per_line_segment                                    1 # necessary for cartesians using rectangular-grid
 
 ## Panel
 # See http://smoothieware.org/panel
