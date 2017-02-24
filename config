@@ -50,7 +50,7 @@ beta_max_rate                                30000.0          # Maxmimum rate in
 gamma_step_pin                               2.2              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.20             # Pin for gamma stepper direction, add '!' to reverse direction
 gamma_en_pin                                 0.19             # Pin for gamma enable
-gamma_current                                1.5              # Z stepper motor current
+gamma_current                                0.78             # Z stepper motor current
 gamma_max_rate                               300.0            # Maximum rate in mm/min
 
 ## Extruder module configuration
