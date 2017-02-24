@@ -280,7 +280,7 @@ gamma_homing_retract_mm                      1                # Distance to retr
 
 ## Z-probe
 # See http://smoothieware.org/zprobe
-zprobe.enable                                true           # Set to true to enable a zprobe
+zprobe.enable                                true            # Set to true to enable a zprobe
 zprobe.probe_pin                             1.28!^          # Pin probe is attached to, if NC remove the !
 zprobe.slow_feedrate                         5               # Mm/sec probe feed rate
 #zprobe.debounce_count                       100             # Set if noisy
