@@ -172,7 +172,7 @@ temperature_control.hotend.designator        T                # Designator lette
 temperature_control.bed.enable               true             # Whether to activate this ( "hotend" ) module at all.
 temperature_control.bed.thermistor_pin       0.24             # Pin for the thermistor to read
 temperature_control.bed.heater_pin           2.5              # Pin that controls the heater
-temperature_control.bed.thermistor           Honeywell100K    # See http://smoothieware.org/temperaturecontrol#thermistor
+temperature_control.bed.thermistor           EPCOS100K        # See http://smoothieware.org/temperaturecontrol#thermistor
 #temperature_control.bed.beta                3974             # Or set the beta value
 temperature_control.bed.set_m_code           140              # M-code to set the temperature for this module
 temperature_control.bed.set_and_wait_m_code  190              # M-code to set-and-wait for this module
