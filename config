@@ -90,7 +90,7 @@ extruder.hotend.en_pin                          0.21          # Pin for extruder
 #extruder.hotend.retract_zlift_length            0            # Z-lift on retract in mm, 0 disables
 #extruder.hotend.retract_zlift_feedrate          6000         # Z-lift feedrate in mm/min (Note mm/min NOT mm/sec)
 
-delta_current                                    1.5          # First extruder stepper motor current
+delta_current                                    1            # First extruder stepper motor current
 
 # Second extruder module configuration
 #extruder.hotend2.enable                         true         # Whether to activate the extruder module at all. All configuration is ignored if false
