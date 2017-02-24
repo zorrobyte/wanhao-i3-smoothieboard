@@ -14,8 +14,8 @@ mm_max_arc_error                             0.01             # The maximum erro
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 # See http://smoothieware.org/stepper-motors
 # DONE for Wanhao i3
-alpha_steps_per_mm                           80               # Steps per mm for alpha ( X ) stepper
-beta_steps_per_mm                            80               # Steps per mm for beta ( Y ) stepper
+alpha_steps_per_mm                           160               # Steps per mm for alpha ( X ) stepper
+beta_steps_per_mm                            160               # Steps per mm for beta ( Y ) stepper
 gamma_steps_per_mm                           400             # Steps per mm for gamma ( Z ) stepper
 
 # Planner module configuration : Look-ahead and acceleration configuration
@@ -65,7 +65,7 @@ extruder.hotend.acceleration                    500           # Acceleration for
 extruder.hotend.max_speed                       50            # Maximum speed in mm/s
 
 extruder.hotend.step_pin                        2.3           # Pin for extruder step signal
-extruder.hotend.dir_pin                         0.22          # Pin for extruder dir signal ( add '!' to reverse direction )
+extruder.hotend.dir_pin                         0.22!          # Pin for extruder dir signal ( add '!' to reverse direction )
 extruder.hotend.en_pin                          0.21          # Pin for extruder enable signal
 
 # Extruder offset
@@ -191,8 +191,8 @@ temperature_control.bed.designator           B                # Designator lette
 
 # Bang-bang ( simplified ) control
 # See http://smoothieware.org/temperaturecontrol#bang-bang
-#temperature_control.bed.bang_bang           false            # Set to true to use bang bang control rather than PID
-#temperature_control.bed.hysteresis          2.0              # Set to the temperature in degrees C to use as hysteresis
+temperature_control.bed.bang_bang           true            # Set to true to use bang bang control rather than PID
+temperature_control.bed.hysteresis          2.0              # Set to the temperature in degrees C to use as hysteresis
 
 ## Switch modules
 # See http://smoothieware.org/switch
@@ -229,27 +229,27 @@ endstops_enable                              true             # The endstop modu
 alpha_min_endstop                            1.24^            # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 #alpha_max_endstop                           1.25^            # Pin to read max endstop, uncomment this and comment the above if using max endstops
 alpha_homing_direction                       home_to_min      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
-alpha_min                                    0                # This gets loaded as the current position after homing when home_to_min is set
+alpha_min                                    -100                # This gets loaded as the current position after homing when home_to_min is set
 alpha_max                                    200              # This gets loaded as the current position after homing when home_to_max is set
 beta_min_endstop                             1.26^            # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 #beta_max_endstop                            1.27^            # Pin to read max endstop, uncomment this and comment the above if using max endstops
 beta_homing_direction                        home_to_min      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
-beta_min                                     0                # This gets loaded as the current position after homing when home_to_min is set
-beta_max                                     200              # This gets loaded as the current position after homing when home_to_max is set
-#gamma_min_endstop                            1.28^            # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
+beta_min                                     -100                # This gets loaded as the current position after homing when home_to_min is set
+beta_max                                     0              # This gets loaded as the current position after homing when home_to_max is set
+gamma_min_endstop                            1.28^            # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 #gamma_max_endstop                           1.29^            # Pin to read max endstop, uncomment this and comment the above if using max endstops
 gamma_homing_direction                       home_to_min      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0                # This gets loaded as the current position after homing when home_to_min is set
 gamma_max                                    180              # This gets loaded as the current position after homing when home_to_max is set
 
-alpha_max_travel                             500              # Max travel in mm for alpha/X axis when homing
-beta_max_travel                              500              # Max travel in mm for beta/Y axis when homing
-gamma_max_travel                             500              # Max travel in mm for gamma/Z axis when homing
+alpha_max_travel                             215              # Max travel in mm for alpha/X axis when homing
+beta_max_travel                              215              # Max travel in mm for beta/Y axis when homing
+gamma_max_travel                             180              # Max travel in mm for gamma/Z axis when homing
 
 # Optional enable limit switches, actions will stop if any enabled limit switch is triggered
 #alpha_limit_enable                          false            # Set to true to enable X min and max limit switches
 #beta_limit_enable                           false            # Set to true to enable Y min and max limit switches
-#gamma_limit_enable                          false            # Set to true to enable Z min and max limit switches
+gamma_limit_enable                           false            # Set to true to enable Z min and max limit switches
 
 # Endstops home at their fast feedrate first, then once the endstop is found they home again at their slow feedrate for accuracy
 alpha_fast_homing_rate_mm_s                  50               # Alpha/X fast homing feedrate in mm/second
@@ -284,40 +284,28 @@ gamma_homing_retract_mm                      1                # Distance to retr
 ## Z-probe
 # See http://smoothieware.org/zprobe
 zprobe.enable                                true            # Set to true to enable a zprobe
-zprobe.probe_pin                             1.28!^          # Pin probe is attached to, if NC remove the !
+zprobe.probe_pin                             1.29^           # Pin probe is attached to, if NC remove the !
 zprobe.slow_feedrate                         5               # Mm/sec probe feed rate
 #zprobe.debounce_count                       100             # Set if noisy
 zprobe.fast_feedrate                         100             # Move feedrate mm/sec
-zprobe.probe_height                          5               # How much above bed to start probe
-#gamma_min_endstop                           nc              # Normally 1.28. Change to nc to prevent conflict,
+zprobe.probe_height                          10               # How much above bed to start probe
+#gamma_min_endstop                            nc              # Normally 1.28. Change to nc to prevent conflict,
 
 # Levelling strategy
-# Example for 3-point levelling strategy, see wiki documentation for other strategies
-#leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
-#leveling-strategy.three-point-leveling.point1         100.0,0.0   # the first probe point (x,y) optional may be defined with M557
-#leveling-strategy.three-point-leveling.point2         200.0,200.0 # the second probe point (x,y)
-#leveling-strategy.three-point-leveling.point3         0.0,200.0   # the third probe point (x,y)
-#leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
-#leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
-#leveling-strategy.three-point-leveling.probe_offsets  0,0,0       # the probe offsets from nozzle, must be x,y,z, default is no offset
-#leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
-leveling-strategy.rectangular-grid.enable              true
-leveling-strategy.rectangular-grid.x_size              200
-leveling-strategy.rectangular-grid.y_size              200
-leveling-strategy.rectangular-grid.size                7
-leveling-strategy.rectangular-grid.do_home             true
-# Optionally probe offsets from the nozzle or tool head can be defined with…
-#leveling-strategy.rectangular-grid.probe_offsets      0,0,0  # probe offsets x,y,z  (Z should always be 0)
-# Probe offsets may also be set with M565 X0 Y0 Z0.
-# If the saved grid is to be loaded on boot then this must be set in the config…
-leveling-strategy.rectangular-grid.save                true
-# Then when M500 is issued it will save M375 which will cause the grid to be loaded on boot. The default is to not autoload the grid on boot.
-# The grid size and the rectangle size is saved in the file, and restored when it is loaded with M375. If the grid size is different from the one in config it will NOT load.
-# If the rectangle is different, then the rectangle will be set to whatever was saved overriding the one set in config.
-# Optionally an initial_height can be set that tell the initial probe where to stop the fast decent before it probes, this should be around 5-10mm above the bed
-leveling-strategy.rectangular-grid.initial_height      10
-# IMPORTANT set mm_per_line_segment:
-mm_per_line_segment                                    1 # necessary for cartesians using rectangular-grid
+leveling-strategy.delta-grid.enable               true     # The strategy must be enabled in the config, as well as the zprobe module.
+leveling-strategy.delta-grid.radius               90       # Radius of the bed, must be specified. This needs to be at least as big as
+                                                           # the maximum printing radius as moves outside of this will not
+                                                           # be compensated for correctly
+leveling-strategy.delta-grid.size                 7        # The size of the grid, for example, 7 causes a 7x7 grid with 49 points.
+                                                           # Must be an odd number.
+leveling-strategy.delta-grid.probe_offsets        -22,-3,0    # Optional probe offsets from the nozzle or tool head
+leveling-strategy.delta-grid.save                 true    # If the saved grid is to be loaded on boot then this must be set to true
+leveling-strategy.delta-grid.initial_height       10       # Optionally an initial_height can be set that tell the intial probe
+                                                           # where to stop the fast decent before it probes, this should be
+                                                           # around 5-10mm above the bed
+leveling-strategy.delta-grid.rectangular_grid     true     # Set this to true if using on a cartesian machine
+leveling-strategy.delta-grid.max_x                90       # Maximum dimension in the X axis
+leveling-strategy.delta-grid.max_y                90       # Maximum dimension in the Y axis
 
 ## Panel
 # See http://smoothieware.org/panel
