@@ -3,8 +3,8 @@
 ## Robot module configurations : general handling of movement G-codes and slicing into moves
 
 # Basic motion configuration
-default_feed_rate                            4000             # Default speed (mm/minute) for G1/G2/G3 moves
-default_seek_rate                            4000             # Default speed (mm/minute) for G0 moves
+default_feed_rate                            9000             # Default speed (mm/minute) for G1/G2/G3 moves
+default_seek_rate                            9000             # Default speed (mm/minute) for G0 moves
 mm_per_arc_segment                           0.0              # Fixed length for line segments that divide arcs, 0 to disable
 #mm_per_line_segment                         5                # Cut lines into segments this size
 mm_max_arc_error                             0.01             # The maximum error for line segments that divide arcs 0 to disable
@@ -21,10 +21,13 @@ gamma_steps_per_mm                           400             # Steps per mm for 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
 # DONE for Wanhao i3
-acceleration                                 1000             # Acceleration in mm/second/second.
+acceleration                                 3000             # Acceleration in mm/second/second.
 z_acceleration                               100              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 junction_deviation                           0.05             # See http://smoothieware.org/motion-control#junction-deviation
 z_junction_deviation                         0.0              # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on z moves DO NOT SET ON A DELTA
+#alpha_acceleration                          0                # Acceleration in millimetres/second/second for the alpha actuator ( X axis on cartesian ), do not set on deltas
+#beta_acceleration                           0                # Acceleration in millimetres/second/second for the beta actuator ( Y axis on cartesian ), do not set on deltas
+#gamma_acceleration                          0                # Acceleration in millimetres/second/second for the gamma actuator ( Z axis on cartesian ), do not set on deltas
 
 # Cartesian axis speed limits
 # DONE for Wanhao i3
@@ -86,7 +89,7 @@ switch.servo.output_type                       hwpwm            # H/W pwm output
 #switch.psu.output_pin                        0.25o!           # open drain, inverted
 #switch.psu.output_type                       digital          # on/off only
 #switch.psu.fail_safe_set_to                  1                # so the ATX turns off on a system crash
-#switch.psu.ignore_on_halt                    true             # so the ATX does not turn off on a HALT condition (like limit trigger)
+#switch.psu.ignore_on_halt                    false            # so the ATX does not turn off on a HALT condition (like limit trigger)
                                                                # However leave commented or set to false if you want the ATX
                                                                # to turn off for an over heat fault condition
 
