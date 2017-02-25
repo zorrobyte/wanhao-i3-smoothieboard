@@ -16,7 +16,7 @@ mm_max_arc_error                             0.01             # The maximum erro
 # DONE for Wanhao i3
 alpha_steps_per_mm                           160               # Steps per mm for alpha ( X ) stepper
 beta_steps_per_mm                            160               # Steps per mm for beta ( Y ) stepper
-gamma_steps_per_mm                           400             # Steps per mm for gamma ( Z ) stepper
+gamma_steps_per_mm                           800             # Steps per mm for gamma ( Z ) stepper
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
