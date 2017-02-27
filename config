@@ -20,15 +20,15 @@ gamma_steps_per_mm                           800              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
-acceleration                                 1000             # Acceleration in mm/second/second.
-#z_acceleration                              500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
+acceleration                                 3000             # Acceleration in mm/second/second.
+z_acceleration                               500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 junction_deviation                           0.05             # See http://smoothieware.org/motion-control#junction-deviation
 #z_junction_deviation                        0.0              # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on z moves DO NOT SET ON A DELTA
 
 # Cartesian axis speed limits
-x_axis_max_speed                             1000            # Maximum speed in mm/min
-y_axis_max_speed                             1000            # Maximum speed in mm/min
-z_axis_max_speed                             200              # Maximum speed in mm/min
+x_axis_max_speed                             9000            # Maximum speed in mm/min
+y_axis_max_speed                             9000            # Maximum speed in mm/min
+z_axis_max_speed                             300              # Maximum speed in mm/min
 
 # Stepper module configuration
 # Pins are defined as  ports, and pin numbers, appending "!" to the number will invert a pin
