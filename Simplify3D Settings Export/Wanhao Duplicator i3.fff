@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<profile name="Wanhao Duplicator i3" version="2017-02-28 10:47:58" app="S3D-Software 3.1.1">
+<profile name="Wanhao Duplicator i3" version="2017-03-02 12:35:05" app="S3D-Software 3.1.1">
   <baseProfile></baseProfile>
   <printMaterial>PLA</printMaterial>
-  <printQuality>Fast</printQuality>
+  <printQuality>Medium</printQuality>
   <printExtruders></printExtruders>
   <extruder name="Primary Extruder">
     <toolheadNumber>0</toolheadNumber>
@@ -21,7 +21,7 @@
     <wipeDistance>5</wipeDistance>
   </extruder>
   <primaryExtruder>0</primaryExtruder>
-  <layerHeight>0.3</layerHeight>
+  <layerHeight>0.2</layerHeight>
   <topSolidLayers>3</topSolidLayers>
   <bottomSolidLayers>3</bottomSolidLayers>
   <perimeterOutlines>2</perimeterOutlines>
@@ -62,7 +62,7 @@
   <infillExtruder>0</infillExtruder>
   <internalInfillPattern>Rectilinear</internalInfillPattern>
   <externalInfillPattern>Rectilinear</externalInfillPattern>
-  <infillPercentage>15</infillPercentage>
+  <infillPercentage>25</infillPercentage>
   <outlineOverlapPercentage>25</outlineOverlapPercentage>
   <infillExtrusionWidthPercentage>125</infillExtrusionWidthPercentage>
   <minInfillLength>5</minInfillLength>
@@ -71,7 +71,7 @@
   <overlapInfillAngles>0</overlapInfillAngles>
   <generateSupport>0</generateSupport>
   <supportExtruder>0</supportExtruder>
-  <supportInfillPercentage>25</supportInfillPercentage>
+  <supportInfillPercentage>30</supportInfillPercentage>
   <supportExtraInflation>0</supportExtraInflation>
   <denseSupportLayers>0</denseSupportLayers>
   <denseSupportInfillPercentage>70</denseSupportInfillPercentage>
@@ -97,7 +97,7 @@
     <relayBetweenLayers>0</relayBetweenLayers>
     <relayBetweenLoops>0</relayBetweenLoops>
     <stabilizeAtStartup>1</stabilizeAtStartup>
-    <setpoint layer="1" temperature="60"/>
+    <setpoint layer="1" temperature="0"/>
   </temperatureController>
   <fanSpeed>
     <setpoint layer="1" speed="0"/>
@@ -143,7 +143,7 @@
   <baudRateOverride>115200</baudRateOverride>
   <overridePrinterModels>1</overridePrinterModels>
   <printerModelsOverride></printerModelsOverride>
-  <startingGcode>G28,M280 S3.0,G31,M280 S7.0,M206 Z-0.30,G28</startingGcode>
+  <startingGcode>G28,M280 S3.0,G31,M280 S7.0,M206 Z-0.7,G28</startingGcode>
   <layerChangeGcode></layerChangeGcode>
   <retractionGcode></retractionGcode>
   <toolChangeGcode></toolChangeGcode>
@@ -226,7 +226,7 @@
     <topSolidLayers>3</topSolidLayers>
     <bottomSolidLayers>3</bottomSolidLayers>
     <skirtLayers>1</skirtLayers>
-    <infillPercentage>15</infillPercentage>
+    <infillPercentage>10</infillPercentage>
     <supportInfillPercentage>25</supportInfillPercentage>
   </autoConfigureQuality>
   <autoConfigureQuality name="Medium">
