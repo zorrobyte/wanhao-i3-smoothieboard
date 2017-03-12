@@ -20,14 +20,7 @@ gamma_steps_per_mm                           800              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
-<<<<<<< HEAD
-acceleration                                 3000             # Acceleration in mm/second/second.
-alpha_acceleration                           1000             # Acceleration in millimetres/second/second for the alpha actuator ( X axis on cartesian ), do not set on deltas
-beta_acceleration                            800              # Acceleration in millimetres/second/second for the beta actuator ( Y axis on cartesian ), do not set on deltas
-gamma_acceleration                           100              # Acceleration in millimetres/second/second for the gamma actuator ( Z axis on cartesian ), do not set on deltas
-=======
 acceleration                                 800             # Acceleration in mm/second/second.
->>>>>>> old
 z_acceleration                               500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 junction_deviation                           0.05             # See http://smoothieware.org/motion-control#junction-deviation
 #z_junction_deviation                        0.0              # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on z moves DO NOT SET ON A DELTA
@@ -35,7 +28,7 @@ junction_deviation                           0.05             # See http://smoot
 # Cartesian axis speed limits
 x_axis_max_speed                             9000            # Maximum speed in mm/min
 y_axis_max_speed                             9000            # Maximum speed in mm/min
-z_axis_max_speed                             300             # Maximum speed in mm/min
+z_axis_max_speed                             300              # Maximum speed in mm/min
 
 # Stepper module configuration
 # Pins are defined as  ports, and pin numbers, appending "!" to the number will invert a pin
