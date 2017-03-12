@@ -190,7 +190,7 @@ temperature_control.bed.designator           B                # Designator lette
 
 # Bang-bang ( simplified ) control
 # See http://smoothieware.org/temperaturecontrol#bang-bang
-temperature_control.bed.bang_bang           true             # Set to true to use bang bang control rather than PID
+temperature_control.bed.bang_bang           false             # Set to true to use bang bang control rather than PID
 temperature_control.bed.hysteresis          2.0              # Set to the temperature in degrees C to use as hysteresis
 
 ## Switch modules
