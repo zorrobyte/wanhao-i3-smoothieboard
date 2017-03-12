@@ -20,7 +20,7 @@ gamma_steps_per_mm                           800              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
-acceleration                                 3000             # Acceleration in mm/second/second.
+acceleration                                 800             # Acceleration in mm/second/second.
 z_acceleration                               500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 junction_deviation                           0.05             # See http://smoothieware.org/motion-control#junction-deviation
 #z_junction_deviation                        0.0              # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on z moves DO NOT SET ON A DELTA
@@ -187,7 +187,7 @@ temperature_control.bed.designator           B                # Designator lette
 
 # Bang-bang ( simplified ) control
 # See http://smoothieware.org/temperaturecontrol#bang-bang
-temperature_control.bed.bang_bang           true             # Set to true to use bang bang control rather than PID
+temperature_control.bed.bang_bang           false             # Set to true to use bang bang control rather than PID
 temperature_control.bed.hysteresis          2.0              # Set to the temperature in degrees C to use as hysteresis
 
 ## Switch modules
