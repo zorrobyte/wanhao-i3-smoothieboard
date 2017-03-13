@@ -307,6 +307,7 @@ leveling-strategy.delta-grid.initial_height       10       # Optionally an initi
 leveling-strategy.delta-grid.rectangular_grid     true     # Set this to true if using on a cartesian machine
 leveling-strategy.delta-grid.max_x                90       # Maximum dimension in the X axis
 leveling-strategy.delta-grid.max_y                90       # Maximum dimension in the Y axis
+leveling-strategy.delta-grid.do_home              false
 
 ## Panel
 # See http://smoothieware.org/panel
